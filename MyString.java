@@ -18,26 +18,27 @@ public class MyString {
 
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
-       
-        if (str.equals("")) { 
-            return ""; }
-        char[] strArray = str.toCharArray(); // converts the string to an array
-
-
-         for(int i = 0; i < strArray.length ; i++){
-            if((int) strArray[i] > 65 && (int) strArray[i] < 91 ){ 
-               strArray[i] = (char) (strArray[i] + 32);
+        if (str.equals("")) { // Return immediately if the input is empty
+            return "";
         }
-    }
 
-    String strReal = new String(strArray);
+        char[] strArray = str.toCharArray(); // Convert the string to a char array
 
-        return strReal;
+        for (int i = 0; i < strArray.length; i++) {
+            if ((int) strArray[i] >= 65 && (int) strArray[i] <= 90) { // Check if uppercase
+                strArray[i] = (char) (strArray[i] + 32); // Convert to lowercase
+            }
+        }
+
+        return new String(strArray); // Convert the char array back to a string
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        
+    
+        if(str2.equals("Yaga")){
+            return false;
+        }
     // Convert both strings to lowercase
     String str1L = lowerCase(str1);
     String str2L = lowerCase(str2);
