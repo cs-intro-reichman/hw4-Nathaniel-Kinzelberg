@@ -14,13 +14,58 @@ public class KeywordsDetector {
             "Effective presentations must be clear, concise, and humble"
         };
         // Some keywords that typically signal bullshit contents in business presentations 
-        String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
+        String[] keywords = {"Synergy", "disrupt", "leverage", "paradigm", "transform"};
         detectAndPrint(sentences, keywords);
     }
 
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+
+        for(int i = 0 ; i < sentences.length ; i++){         // Checks every Keyword
+            
+            String sentence = sentences[i];
+           //  System.out.println(i + "********"); for debugging
+
+            for(int j = 0 ; j < keywords.length ; j++){ // Checks a specific keyword for every sentence
+            //    System.out.println(j);            also for debugging
+                String keyword = keywords[j];
+
+            if(contains(sentence,keyword)){
+                System.out.println(sentence);
+            }
+         }
+    }     
+
     }
+
+
+    public static boolean contains(String str1, String str2) { // from MyString code which i did  previously.
+        // Convert strings to character arrays
+        char[] str1Array = str1.toCharArray();
+        char[] str2Array = str2.toCharArray();
+
+        // If str2 is longer than str1, it cannot be a substring
+        if (str2Array.length > str1Array.length) {
+            return false;
+        }
+
+        // Loop through str1Array to find str2Array
+        for (int i = 0; i <= str1Array.length - str2Array.length; i++) {
+            int j;
+            for (j = 0; j < str2Array.length; j++) {
+                if (str1Array[i + j] != str2Array[j]) {
+                    break;
+                }
+            }
+            // If we went through the entire str2Array, it means we found a match
+            if (j == str2Array.length) {
+                return true;
+            }
+        }
+
+        // No match found
+        return false;
+    }
+
 }
