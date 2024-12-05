@@ -19,7 +19,9 @@ public class MyString {
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
        
-        char[] strArray = str.toCharArray();
+        if (str.equals("")) { 
+            return ""; }
+        char[] strArray = str.toCharArray(); // converts the string to an array
 
 
          for(int i = 0; i < strArray.length ; i++){

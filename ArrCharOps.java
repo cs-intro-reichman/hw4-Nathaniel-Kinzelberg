@@ -181,6 +181,10 @@ public class ArrCharOps {
      */
     public static int compareTo(String str1, String str2) {
 
+        if (str1.equals("") || str2.equals("")) {
+            return -2;
+        }
+
         char[] str1Array = str1.toCharArray();
         char[] str2Array = str2.toCharArray();
         char[] tempShort;
@@ -196,6 +200,7 @@ public class ArrCharOps {
            str2Array[i] = (char) (str2Array[i] - 32);
     }
 } */
+
 
         if(str1Array.length >= str2Array.length){ // Converts a value for the future loop to use
             tempShort = str2Array;
